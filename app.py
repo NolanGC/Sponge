@@ -1,4 +1,23 @@
 from sponge import mnemonic
 
-for i in range(5):
-    print(mnemonic('I like to eat apples and oranges'))
+
+print(mnemonic('Optic Rotundum Ovale Spinosum Lacerum Acoustic Jugular')) 
+
+
+
+
+
+
+
+
+
+
+
+#fin = open(infile)
+#fout = open(outfile, "w+")
+#for line in fin:
+#    if(len(str(line).replace('\n', '')) > 8):
+#        line = ''
+#    fout.write(line)
+#fin.close()
+#fout.close()
