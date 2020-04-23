@@ -1,13 +1,18 @@
 import random
-
+from os.path import dirname, join
 def mnemonic(s):
-    with open('Words/nouns.txt', 'r') as fin:
+    working = dirname(__file__)
+    fp = join(working, './Words/nouns.txt')
+    with open(fp, 'r') as fin:
         nouns = fin.read().splitlines()
-    with open('Words/verbs.txt', 'r') as fin:
+    fp = join(working, './Words/verbs.txt')
+    with open(fp, 'r') as fin:
         verbs = fin.read().splitlines()
-    with open('Words/adjectives.txt', 'r') as fin:
+    fp = join(working, './Words/adjectives.txt')
+    with open(fp, 'r') as fin:
         adjectives = fin.read().splitlines()
-    with open('Words/adverbs.txt', 'r') as fin:
+    fp = join(working, './Words/adverbs.txt')
+    with open(fp, 'r') as fin:
         adverbs = fin.read().splitlines()
     data = [s[0].lower() for s in s.split(' ')]
     device = list()

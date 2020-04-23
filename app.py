@@ -1,17 +1,7 @@
 from sponge import mnemonic
 
-
-print(mnemonic('Optic Rotundum Ovale Spinosum Lacerum Acoustic Jugular')) 
-
-
-
-
-
-
-
-
-
-
+for i in range(5):
+    print(mnemonic('this zoom call will never end')) 
 
 #fin = open(infile)
 #fout = open(outfile, "w+")
