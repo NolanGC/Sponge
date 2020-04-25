@@ -17,7 +17,7 @@ def mnemonic(s):
     data = [s[0].lower() for s in s.split(' ')]
     device = list()
     pattern = list()
-    structure = [0,0,0,0,0,'anxvn','aanxvn','aanxvan','aanxvaan','aanxxvaan','aaanxxvaan']
+    structure = [0,0,0,0,0,'anxvn','aanvnx','aanxvan','aanxvaan','aanxxvaan','aaanxxvaan']
     pattern = structure[len(data)]
     index = 0
     for i in range(len(data)):
