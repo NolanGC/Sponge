@@ -1,24 +1,28 @@
 import random
 from os.path import dirname, join
+working = dirname(__file__)
+
+def read_corpus(files):
+    corpus = list()
+    for file in files:
+        fp = join(working, './Words/' + file + '.txt')
+        with open(fp, 'r') as fin:
+            corpus.append(fin.read().splitlines())
+    return corpus
+
+def gen_pattern(n):
+    structure = [
+        '','n','nv','nxv','nxvn','anxvn','acnxvn','acnxvcan','aanxvaacn','aanxxvaan','aaanxxvaan'
+    ]
+    return structure[n]
+
 def mnemonic(s):
-    working = dirname(__file__)
-    fp = join(working, './Words/nouns.txt')
-    with open(fp, 'r') as fin:
-        nouns = fin.read().splitlines()
-    fp = join(working, './Words/verbs.txt')
-    with open(fp, 'r') as fin:
-        verbs = fin.read().splitlines()
-    fp = join(working, './Words/adjectives.txt')
-    with open(fp, 'r') as fin:
-        adjectives = fin.read().splitlines()
-    fp = join(working, './Words/adverbs.txt')
-    with open(fp, 'r') as fin:
-        adverbs = fin.read().splitlines()
+    files = ['nouns','verbs','adjectives','adverbs','colors']
+    nouns, verbs, adjectives, adverbs, colors = read_corpus(files)
     data = [s[0].lower() for s in s.split(' ')]
+    pattern = gen_pattern(len(data))
+
     device = list()
-    pattern = list()
-    structure = [0,0,0,0,0,'anxvn','aanvnx','aanxvan','aanxvaan','aanxxvaan','aaanxxvaan']
-    pattern = structure[len(data)]
     index = 0
     for i in range(len(data)):
         if(pattern[index] == 'n'):
@@ -29,9 +33,10 @@ def mnemonic(s):
             pool = [adj for adj in adjectives if adj.lower().startswith(data[i].lower())] 
         elif(pattern[index] == 'x'):
             pool = [adv for adv in adverbs if adv.lower().startswith(data[i].lower())] 
+        elif(pattern[index] == 'c'):
+            pool = [color for color in colors if color.lower().startswith(data[i].lower())] 
         device.append(pool[random.randint(0, len(pool)-1)])
         index += 1 
-
     out = ''
     for w in device:
         out += w + ' '

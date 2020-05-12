@@ -11,6 +11,10 @@ Elephants and Donkeys Grow Big Ears (noun verb adj ... noun)
 
 Adhere to these patterns
 
+Research
+https://www.aclweb.org/anthology/C14-1190.pdf
+
+
 
 
 
